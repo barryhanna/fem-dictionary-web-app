@@ -42,6 +42,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --spacer: 1rem;
+  --spacer-sm: calc(var(--spacer) / 2);
+  --spacer-md: calc(var(--spacer) * 1.5);
+  --spacer-lg: calc(var(--spacer) * 2);
+  --spacer-xl: calc(var(--spacer) * 2.5);
+  --gutter: var(--spacer-md);
 }
 
 body {
@@ -51,18 +58,27 @@ body {
   place-content: center;
 }
 
-nav {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
+.navbar .options {
+  display: flex;
+  gap: 1em;
+}
+
+.navbar .options select {
+  display: none;
+}
+
 .App {
-  background-color: blanchedalmond;
   min-width: 50vw;
   min-height: 80vh;
   margin: 0 auto;
+  padding: var(--gutter);
 }
 
 .toggle-button {
