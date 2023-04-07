@@ -21,21 +21,32 @@
     format('truetype');
 }
 
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --clr-black-900: hsl(0 0% 2%);
   --clr-black-800: hsl(0 0% 12%);
   --clr-black-700: hsl(0 0% 18%);
   --clr-black-600: hsl(0 0% 23%);
   --clr-black-300: hsl(0 0% 51%);
-  --clr-gray-200: #e9e9e9;
-  --clr-gray-400: #f4f4f4;
+  --clr-gray-200: hsl(0, 0%, 91%);
+  --clr-gray-400: hsl(0, 0%, 96%);
   --clr-white-400: hsl(0 0% 100%);
   --clr-purple-400: hsl(274 82% 60%);
   --clr-red-400: hsl(0 100% 66%);
 
+  --clr-accent: var(--clr-purple-400);
+
   --ff-sans: 'Inter', sans-serif;
   --ff-serif: 'Lora', sans-serif;
   --ff-mono: 'Inconsolata', mono;
+
+  --ff-main-ff: var(--ff-sans);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -51,11 +62,84 @@
   --gutter: var(--spacer-md);
 }
 
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
 body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--ff-main-ff);
   margin: 0;
   min-height: 100vh;
   display: grid;
   place-content: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--clr-accent);
 }
 
 .navbar {
@@ -70,8 +154,9 @@ body {
   gap: 1em;
 }
 
-.navbar .options select {
-  display: none;
+.typeface-selector {
+  border: none;
+  accent-color: var(--clr-accent);
 }
 
 .App {
@@ -89,6 +174,7 @@ body {
   border: none;
   height: 20px;
   width: 40px;
+  cursor: pointer;
 }
 
 .toggle-button::after {
@@ -108,4 +194,35 @@ body {
 .toggle-button.on::after {
   transform: translateX(19px);
   transition: transform 350ms ease;
+}
+
+.search-input__container {
+  position: relative;
+  padding: 0;
+  border: none;
+}
+
+.search-input__container::after {
+  position: absolute;
+  content: '';
+  top: 60%;
+  right: 5%;
+  height: 18px;
+  width: 18px;
+  background-image: url('/assets/images/icon-search.svg');
+  background-position: center;
+}
+
+.search-input__search {
+  width: 100%;
+  margin-top: 50px;
+  padding: 1.5rem;
+  background-color: var(--clr-gray-200);
+  border: none;
+  border-radius: 1rem;
+}
+
+.search-input__search:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--clr-accent);
 }

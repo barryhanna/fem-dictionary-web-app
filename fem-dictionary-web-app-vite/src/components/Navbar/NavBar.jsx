@@ -1,22 +1,19 @@
-import React from "react";
-import ToggleButton from "../ToggleButton/ToggleButton";
+import React from 'react';
+import ToggleButton from '../ToggleButton/ToggleButton';
+import Selector from '../Selector/Selector';
 
 const NavBar = () => {
-    return (
-        <nav className="navbar">
-            <img src='/assets/images/logo.svg' alt='' />
+  return (
+    <nav className="navbar">
+      <img src="/assets/images/logo.svg" alt="" />
 
-            <div className="options">
-                <select name="typeface" id="typeface">
-                    <option value="sans">Sans Serif</option>
-                    <option value="serif">Serif</option>
-                    <option value="mono">Monospace</option>
-                </select>
-                <ToggleButton />
-                <img src="/assets/images/icon-moon.svg" alt="" />
-            </div>
-        </nav>
-    )
-}
+      <div className="options">
+        <Selector />
+        <ToggleButton />
+        <img src="/assets/images/icon-moon.svg" alt="" />
+      </div>
+    </nav>
+  );
+};
 
 export default NavBar;
