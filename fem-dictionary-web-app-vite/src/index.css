@@ -41,6 +41,7 @@
   --clr-red-400: hsl(0 100% 66%);
 
   --clr-accent: var(--clr-purple-400);
+  --clr-error: var(--clr-red-400);
 
   --ff-sans: 'Inter', sans-serif;
   --ff-serif: 'Lora', sans-serif;
@@ -225,4 +226,10 @@ select {
 .search-input__search:focus {
   outline: none;
   box-shadow: 0 0 0 3px var(--clr-accent);
+}
+
+.search-input__error-message {
+  color: var(--clr-error);
+  font-size: 1.25rem;
+  font-weight: normal;
 }
