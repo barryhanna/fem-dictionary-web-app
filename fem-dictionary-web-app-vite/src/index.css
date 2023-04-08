@@ -192,6 +192,10 @@ select {
   transition: transform 350ms ease;
 }
 
+.toggle-button.on {
+  background-color: var(--clr-purple-400);
+}
+
 .toggle-button.on::after {
   transform: translateX(19px);
   transition: transform 350ms ease;
@@ -225,7 +229,6 @@ select {
 
 .search-input__search:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--clr-accent);
 }
 
 .search-input__error-message {
