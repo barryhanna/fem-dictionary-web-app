@@ -140,7 +140,7 @@ select {
 
 *:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--clr-accent);
+  box-shadow: 0 0 0 2px var(--clr-accent);
 }
 
 .navbar {
@@ -205,12 +205,13 @@ select {
   position: relative;
   padding: 0;
   border: none;
+  margin-top: 50px;
 }
 
 .search-input__container::after {
   position: absolute;
   content: '';
-  top: 60%;
+  top: 25%;
   right: 5%;
   height: 18px;
   width: 18px;
@@ -220,11 +221,14 @@ select {
 
 .search-input__search {
   width: 100%;
-  margin-top: 50px;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   background-color: var(--clr-gray-200);
   border: none;
   border-radius: 1rem;
+}
+
+.search-input__search::placeholder {
+  opacity: 0.25;
 }
 
 .search-input__search:focus {
@@ -235,4 +239,10 @@ select {
   color: var(--clr-error);
   font-size: 1.25rem;
   font-weight: normal;
+  margin-top: 0.25rem;
+}
+
+.error {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--clr-error);
 }
