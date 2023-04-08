@@ -42,6 +42,8 @@
 
   --clr-accent: var(--clr-purple-400);
   --clr-error: var(--clr-red-400);
+  --clr-toggle-on: var(--clr-accent);
+  --clr-toggle-off: var(--clr-black-300);
 
   --ff-sans: 'Inter', sans-serif;
   --ff-serif: 'Lora', sans-serif;

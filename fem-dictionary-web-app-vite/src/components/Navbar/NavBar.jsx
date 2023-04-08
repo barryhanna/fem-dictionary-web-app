@@ -10,7 +10,6 @@ const NavBar = () => {
       <div className="options">
         <Selector />
         <ToggleButton />
-        <img src="/assets/images/icon-moon.svg" alt="" />
       </div>
     </nav>
   );
