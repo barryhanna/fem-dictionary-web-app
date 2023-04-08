@@ -287,6 +287,26 @@ select {
   background-color: var(--clr-gray-400);
 }
 
+.dictionary-entry__definition {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.dictionary-entry__definition::marker {
+  color: var(--clr-accent);
+}
+
+.dictionary-entry__synonyms {
+  color: var(--clr-black-300);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.dictionary-entry__synonym {
+  color: var(--clr-accent);
+  font-weight: bold;
+}
+
 /* UTILITIES */
 
 .visually-hidden {

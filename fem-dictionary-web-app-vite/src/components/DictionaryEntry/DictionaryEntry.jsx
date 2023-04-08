@@ -17,8 +17,44 @@ const DictionaryEntry = ({ wordData }) => {
         </div>
       </header>
 
-      <div className="dictionary-entry__part-of-speech">
-        <p>{wordData.meanings[0].partOfSpeech}</p>
+      <div className="dictionary-entry__meanings-list">
+        {wordData.meanings.map((meaning, i) => {
+          console.log(meaning);
+          return (
+            <div
+              key={`${meaning}-${i}`}
+              className="dictionary-entry__meaning"
+            >
+              <div className="dictionary-entry__part-of-speech">
+                <p>{meaning.partOfSpeech}</p>
+              </div>
+              <p>Meaning</p>
+              <ul className="dictionary-entry__definitions-list">
+                {meaning.definitions.map(({ definition }, index) => {
+                  return (
+                    <li
+                      className="dictionary-entry__definition"
+                      key={index}
+                    >
+                      {definition}
+                    </li>
+                  );
+                })}
+              </ul>
+              <p className="dictionary-entry__synonyms">
+                Synonyms{' '}
+                {meaning.synonyms.map((synonym, i) => (
+                  <span
+                    key={synonym}
+                    className="dictionary-entry__synonym"
+                  >
+                    {synonym}
+                  </span>
+                ))}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
