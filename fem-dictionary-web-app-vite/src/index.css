@@ -265,6 +265,22 @@ select {
   background-color: transparent;
 }
 
+.dictionary-entry__part-of-speech {
+  position: relative;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+.dictionary-entry__part-of-speech::after {
+  content: '';
+  position: absolute;
+  width: calc(100% - 4ch);
+  height: 1px;
+  top: 50%;
+  right: 0;
+  background-color: var(--clr-gray-400);
+}
+
 /* UTILITIES */
 
 .visually-hidden {

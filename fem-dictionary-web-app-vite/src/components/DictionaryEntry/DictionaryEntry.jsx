@@ -16,6 +16,10 @@ const DictionaryEntry = ({ wordData }) => {
           <audio src={wordData.audio}></audio>
         </div>
       </header>
+
+      <div className="dictionary-entry__part-of-speech">
+        <p>{wordData.meanings[0].partOfSpeech}</p>
+      </div>
     </div>
   );
 };
