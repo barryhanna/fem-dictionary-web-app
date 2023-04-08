@@ -265,6 +265,12 @@ select {
   background-color: transparent;
 }
 
+.dictionary-entry__phonetic {
+  color: var(--clr-accent);
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
 .dictionary-entry__part-of-speech {
   position: relative;
   font-style: italic;
