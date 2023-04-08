@@ -169,6 +169,8 @@ select {
   padding: var(--gutter);
 }
 
+/* TOGGLE BUTTON - LIGHT/DARK THEME */
+
 .toggle-button {
   display: inline-block;
   position: relative;
@@ -202,6 +204,8 @@ select {
   transform: translateX(19px);
   transition: transform 350ms ease;
 }
+
+/* SEARCH INPUT */
 
 .search-input__container {
   position: relative;
@@ -238,6 +242,7 @@ select {
 }
 
 .search-input__error-message {
+  display: none;
   color: var(--clr-error);
   font-size: 1.25rem;
   font-weight: normal;
@@ -247,4 +252,29 @@ select {
 .error {
   outline: none;
   box-shadow: 0 0 0 2px var(--clr-error);
+}
+
+/* DICTIONARY ENTRY */
+.dictionary-entry__interactive-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dictionary-entry__play-button {
+  border: none;
+  background-color: transparent;
+}
+
+/* UTILITIES */
+
+.visually-hidden {
+  display: inline-block;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1;
+  width: 1;
+  margin: -1;
+  padding: 0;
+  border: 0;
 }
