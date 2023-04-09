@@ -4,7 +4,6 @@ import SearchInput from './components/SearchInput/SearchInput';
 import { data } from './data/example-word';
 
 function App() {
-  console.log(data);
   return (
     <div className="App">
       <NavBar />
