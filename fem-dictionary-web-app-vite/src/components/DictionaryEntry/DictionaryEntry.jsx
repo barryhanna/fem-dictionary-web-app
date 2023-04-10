@@ -1,23 +1,17 @@
 import React from 'react';
-import PlayButton from '../PlayButton/PlayButton';
+import DictionaryHeader from './DictionaryHeader/DictionaryHeader';
+import DictionarySource from './DictionarySource/DictionarySource';
+import DictionaryMeaning from './DictionaryMeaning/DictionaryMeaning';
+import DictionarySynonym from './DictionarySynonym/DictionarySynonym';
 
 const DictionaryEntry = ({ wordData }) => {
-  const audioPlayerRef = React.useRef(null);
-
   return (
     <div className="dictionary-entry__container">
-      <header className="dictionary-entry__interactive-header">
-        <div className="dictionary-entry__word-container">
-          <h2 className="dictionary-entry__word">{wordData.word}</h2>
-          <p className="dictionary-entry__phonetic">
-            {wordData.phonetic}
-          </p>
-        </div>
-        <div className="dictionary-entry__audio-player">
-          <audio ref={audioPlayerRef} src={wordData.audio}></audio>
-          <PlayButton audioPlayer={audioPlayerRef} />
-        </div>
-      </header>
+      <DictionaryHeader
+        word={wordData.word}
+        phonetic={wordData.phonetic}
+        audio={wordData.audio}
+      />
 
       <div className="dictionary-entry__meanings-list">
         {wordData.meanings.map((meaning, i) => {
@@ -34,34 +28,21 @@ const DictionaryEntry = ({ wordData }) => {
               </p>
               <ul className="dictionary-entry__definitions-list">
                 {meaning.definitions.map(
-                  ({ definition, example }, index) => {
-                    return (
-                      <li
-                        className="dictionary-entry__definition"
-                        key={index}
-                      >
-                        {definition}
-                        {example && (
-                          <p className="dictionary-entry__example">
-                            "{example}"
-                          </p>
-                        )}
-                      </li>
-                    );
-                  }
+                  ({ definition, example }, index) => (
+                    <DictionaryMeaning
+                      definition={definition}
+                      example={example}
+                      index={index}
+                    />
+                  )
                 )}
               </ul>
 
               {meaning.synonyms.length > 0 && (
                 <p className="dictionary-entry__synonyms">
                   Synonyms{' '}
-                  {meaning.synonyms.map((synonym, i) => (
-                    <span
-                      key={synonym}
-                      className="dictionary-entry__synonym"
-                    >
-                      {synonym}
-                    </span>
+                  {meaning.synonyms.map((synonym) => (
+                    <DictionarySynonym synonym={synonym} />
                   ))}
                 </p>
               )}
@@ -69,16 +50,7 @@ const DictionaryEntry = ({ wordData }) => {
           );
         })}
       </div>
-      <p className="dictionary-entry__source">
-        <span className="dictionary-entry__source-heading">
-          Source{'  '}
-        </span>
-        {wordData.sourceUrls.map((url) => (
-          <a key={url} href={url} target="_blank">
-            {url} <img src="assets/images/icon-new-window.svg" />
-          </a>
-        ))}
-      </p>
+      <DictionarySource sourceUrls={wordData.sourceUrls} />
     </div>
   );
 };
