@@ -275,6 +275,10 @@ select {
   cursor: pointer;
 }
 
+.dictionary-entry__play-button img {
+  pointer-events: none;
+}
+
 .dictionary-entry__phonetic {
   color: var(--clr-accent);
   font-weight: 300;

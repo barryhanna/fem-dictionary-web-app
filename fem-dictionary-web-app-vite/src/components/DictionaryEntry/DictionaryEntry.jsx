@@ -6,12 +6,16 @@ import DictionarySynonym from './DictionarySynonym/DictionarySynonym';
 import uuid from 'react-uuid';
 
 const DictionaryEntry = ({ wordData }) => {
+  const audioFile = wordData.phonetics.filter(
+    (phonetic) => phonetic.audio
+  )[0].audio;
+
   return (
     <div className="dictionary-entry__container">
       <DictionaryHeader
         word={wordData.word}
         phonetic={wordData.phonetic}
-        audio={wordData.audio}
+        audio={audioFile}
       />
 
       <div className="dictionary-entry__meanings-list">
