@@ -3,6 +3,7 @@ import DictionaryHeader from './DictionaryHeader/DictionaryHeader';
 import DictionarySource from './DictionarySource/DictionarySource';
 import DictionaryMeaning from './DictionaryMeaning/DictionaryMeaning';
 import DictionarySynonym from './DictionarySynonym/DictionarySynonym';
+import uuid from 'react-uuid';
 
 const DictionaryEntry = ({ wordData }) => {
   return (
@@ -16,10 +17,7 @@ const DictionaryEntry = ({ wordData }) => {
       <div className="dictionary-entry__meanings-list">
         {wordData.meanings.map((meaning, i) => {
           return (
-            <div
-              key={`${meaning}-${i}`}
-              className="dictionary-entry__meaning"
-            >
+            <div key={uuid()} className="dictionary-entry__meaning">
               <div className="dictionary-entry__part-of-speech">
                 <p>{meaning.partOfSpeech}</p>
               </div>
@@ -28,11 +26,11 @@ const DictionaryEntry = ({ wordData }) => {
               </p>
               <ul className="dictionary-entry__definitions-list">
                 {meaning.definitions.map(
-                  ({ definition, example }, index) => (
+                  ({ definition, example }) => (
                     <DictionaryMeaning
                       definition={definition}
                       example={example}
-                      index={index}
+                      key={uuid()}
                     />
                   )
                 )}
@@ -42,7 +40,10 @@ const DictionaryEntry = ({ wordData }) => {
                 <p className="dictionary-entry__synonyms">
                   Synonyms{' '}
                   {meaning.synonyms.map((synonym) => (
-                    <DictionarySynonym synonym={synonym} />
+                    <DictionarySynonym
+                      key={uuid()}
+                      synonym={synonym}
+                    />
                   ))}
                 </p>
               )}

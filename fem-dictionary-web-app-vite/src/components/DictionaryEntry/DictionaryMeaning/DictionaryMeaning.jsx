@@ -1,8 +1,8 @@
 import React from 'react';
 
-const DictionaryMeaning = ({ definition, example, index }) => {
+const DictionaryMeaning = ({ definition, example }) => {
   return (
-    <li className="dictionary-entry__definition" key={index}>
+    <li className="dictionary-entry__definition">
       {definition}
       {example && (
         <p className="dictionary-entry__example">"{example}"</p>
