@@ -266,6 +266,13 @@ select {
   justify-content: space-between;
 }
 
+.dictionary-entry__spinner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacer-lg);
+}
+
 .dictionary-entry__play-button {
   height: 75px;
   width: 75px;
@@ -299,6 +306,7 @@ select {
   top: 50%;
   right: 0;
   background-color: var(--clr-gray-400);
+  z-index: -1;
 }
 
 .dictionary-entry__definitions-list {
