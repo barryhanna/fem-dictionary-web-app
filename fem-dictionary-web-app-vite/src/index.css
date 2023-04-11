@@ -220,7 +220,7 @@ select {
 .search-input__container::after {
   position: absolute;
   content: '';
-  top: 25%;
+  top: 30%;
   right: 5%;
   height: 18px;
   width: 18px;
@@ -341,6 +341,10 @@ select {
   font-weight: bold;
 }
 
+.dictionary-entry__synonym:not(:last-of-type) {
+  margin-right: var(--spacer-sm);
+}
+
 .dictionary-entry__example {
   color: #757575;
 }
@@ -361,6 +365,7 @@ select {
 .dictionary-entry__source a {
   font-weight: normal;
   color: #2d2d2d;
+  margin-right: var(--spacer-sm);
 }
 
 .dictionary-entry__source a img {
