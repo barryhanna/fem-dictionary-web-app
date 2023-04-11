@@ -176,6 +176,11 @@ select {
   accent-color: var(--clr-accent);
 }
 
+.dark .typeface-selector {
+  background-color: var(--clr-black-900);
+  color: var(--clr-white-400);
+}
+
 .App {
   min-width: 50vw;
   min-height: 80vh;
@@ -384,7 +389,7 @@ select {
   margin-right: var(--spacer-sm);
 }
 
-.dictionary-entry__source a {
+.dark .dictionary-entry__source a {
   color: var(--clr-white-400);
 }
 
