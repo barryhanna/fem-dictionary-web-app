@@ -45,6 +45,12 @@
   --clr-toggle-on: var(--clr-accent);
   --clr-toggle-off: var(--clr-black-300);
 
+  --clr-dark-bg: var(--clr-black-900);
+
+  --clr-page-bg: var(--clr-white-400);
+
+  --theme: 'light';
+
   --ff-sans: 'Inter', sans-serif;
   --ff-serif: 'Lora', sans-serif;
   --ff-mono: 'Inconsolata', mono;
@@ -94,6 +100,7 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
+  background-color: var(--clr-page-bg);
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -104,6 +111,11 @@ body {
   place-content: center;
   font-weight: bold;
   font-size: 1.25rem;
+}
+
+body.dark {
+  background-color: var(--clr-dark-bg);
+  color: var(--clr-white-400);
 }
 
 /* A elements that don't have a class get default styles */
@@ -362,10 +374,18 @@ select {
   text-decoration: underline;
 }
 
+.dark .dictionary-entry__source-heading {
+  text-decoration: none;
+}
+
 .dictionary-entry__source a {
   font-weight: normal;
   color: #2d2d2d;
   margin-right: var(--spacer-sm);
+}
+
+.dictionary-entry__source a {
+  color: var(--clr-white-400);
 }
 
 .dictionary-entry__source a img {

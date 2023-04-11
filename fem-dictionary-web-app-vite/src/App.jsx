@@ -4,11 +4,22 @@ import NavBar from './components/Navbar/NavBar';
 import SearchInput from './components/SearchInput/SearchInput';
 import { ClockLoader } from 'react-spinners';
 
+export const ThemeContext = React.createContext();
+
 function App() {
   const DICTIONARY_URL =
     'https://api.dictionaryapi.dev/api/v2/entries/en/';
   const [word, setWord] = React.useState('');
   const [loading, setLoading] = React.useState(false);
+  const [theme, toggleTheme] = React.useState('light');
+
+  React.useEffect(() => {
+    if (theme) {
+      document.body.classList.remove('dark');
+    } else {
+      document.body.classList.add('dark');
+    }
+  }, [theme]);
 
   React.useEffect(() => {
     setLoading(true);
@@ -27,7 +38,9 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <ThemeContext.Provider value={toggleTheme}>
+        <NavBar />
+      </ThemeContext.Provider>
       <SearchInput word={word} setWord={setWord} />
       {loading && (
         <div className="dictionary-entry__spinner-container">

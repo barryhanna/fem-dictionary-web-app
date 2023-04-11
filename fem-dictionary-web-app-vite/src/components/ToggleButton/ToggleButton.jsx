@@ -1,9 +1,11 @@
 import React from 'react';
-
+import { ThemeContext } from '../../App';
 const ToggleButton = () => {
   const [toggle, setToggle] = React.useState(false);
+  const toggleTheme = React.useContext(ThemeContext);
 
   const handleClick = (e) => {
+    toggleTheme(toggle);
     setToggle(!toggle);
   };
 
