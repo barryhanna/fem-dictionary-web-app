@@ -1,25 +1,40 @@
 import React from 'react';
 
-const SearchInput = () => {
-  const [term, setTerm] = React.useState('');
+const SearchInput = ({ setWord }) => {
+  const [searchTerm, setSearchTerm] = React.useState('');
+  const [error, setError] = React.useState(false);
 
   function handleInput(e) {
-    setTerm(e.target.value);
+    if (error) {
+      setError(false);
+    }
+    const searchTerm = e.target.value.trim().toLowerCase();
+    setSearchTerm(searchTerm);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (searchTerm === '') {
+      setError(true);
+      return;
+    }
+    console.log(`${searchTerm} submitted`);
+    setWord(searchTerm);
   }
 
   return (
-    <fieldset className="search-input__container">
+    <form className="search-input__container" onSubmit={handleSubmit}>
       <input
         className="search-input__search"
         placeholder="Search for any word..."
         type="text"
-        value={term}
+        value={searchTerm}
         onChange={handleInput}
       />
-      <p className="search-input__error-message">
+      <p className="search-input__error-message" hidden={!error}>
         Whoops, can't be empty...
       </p>
-    </fieldset>
+    </form>
   );
 };
 

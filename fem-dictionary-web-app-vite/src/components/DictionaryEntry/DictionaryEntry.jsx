@@ -6,9 +6,16 @@ import DictionarySynonym from './DictionarySynonym/DictionarySynonym';
 import uuid from 'react-uuid';
 
 const DictionaryEntry = ({ wordData }) => {
+  if (!wordData.word) {
+    return (
+      <div className="dictionary-entry__container">
+        <p>Word not found</p>
+      </div>
+    );
+  }
   const audioFile = wordData.phonetics.filter(
     (phonetic) => phonetic.audio
-  )[0].audio;
+  )[0]?.audio;
 
   return (
     <div className="dictionary-entry__container">

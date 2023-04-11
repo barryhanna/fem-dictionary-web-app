@@ -245,7 +245,6 @@ select {
 }
 
 .search-input__error-message {
-  display: none;
   color: var(--clr-error);
   font-size: 1.25rem;
   font-weight: normal;
