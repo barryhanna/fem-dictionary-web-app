@@ -298,8 +298,17 @@ select {
   cursor: pointer;
 }
 
-.dictionary-entry__play-button img {
+.dictionary-entry__play-button svg {
+  fill: var(--clr-accent);
   pointer-events: none;
+}
+
+.dictionary-entry__play-button:hover svg circle {
+  opacity: 1;
+}
+
+.dictionary-entry__play-button:hover svg path {
+  fill: var(--clr-white-400);
 }
 
 .dictionary-entry__phonetic {
