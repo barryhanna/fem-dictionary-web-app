@@ -22,10 +22,10 @@ function App() {
   }, [theme]);
 
   React.useEffect(() => {
-    if (word === '') return;
+    if (!word) return;
 
     async function getWordData() {
-      console.log(word);
+      if (typeof word === 'object') return;
       const res = await fetch(`${DICTIONARY_URL}${word}`);
       if (!res.ok) {
         return;
