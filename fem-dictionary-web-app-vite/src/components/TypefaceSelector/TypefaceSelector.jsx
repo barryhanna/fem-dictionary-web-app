@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Selector = () => {
+const TypefaceSelector = () => {
   const [selectedTypeface, setSelectedTypeface] =
     React.useState('sans');
 
@@ -16,6 +16,7 @@ const Selector = () => {
       className="typeface-selector"
       name="typeface"
       id="typeface"
+      aria-label="Typeface"
       value={selectedTypeface}
       onChange={(e) => {
         const newTypeface = e.target.value;
@@ -30,4 +31,4 @@ const Selector = () => {
   );
 };
 
-export default Selector;
+export default TypefaceSelector;

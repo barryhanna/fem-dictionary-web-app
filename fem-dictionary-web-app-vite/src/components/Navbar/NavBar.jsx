@@ -1,6 +1,6 @@
 import React from 'react';
 import ToggleButton from '../ToggleButton/ToggleButton';
-import Selector from '../Selector/Selector';
+import TypefaceSelector from '../TypefaceSelector/TypefaceSelector';
 
 const NavBar = () => {
   return (
@@ -8,7 +8,7 @@ const NavBar = () => {
       <img src="/assets/images/logo.svg" alt="" />
 
       <div className="options">
-        <Selector />
+        <TypefaceSelector />
         <ToggleButton />
       </div>
     </nav>

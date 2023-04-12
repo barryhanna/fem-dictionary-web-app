@@ -303,6 +303,8 @@ select {
 }
 
 .dictionary-entry__play-button {
+  display: grid;
+  place-content: center;
   height: 75px;
   width: 75px;
   border: none;
@@ -394,7 +396,7 @@ select {
 .dictionary-entry__source {
   font-size: 14px;
   border-top: 1px solid #e9e9e9;
-  padding-top: 0.25em;
+  padding-top: var(--spacer-sm);
   margin-top: var(--spacer-lg);
 }
 

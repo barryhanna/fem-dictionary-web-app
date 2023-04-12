@@ -22,11 +22,15 @@ function App() {
   }, [theme]);
 
   React.useEffect(() => {
-    if (theme === '') return;
+    if (word === '') return;
 
-    setLoading(true);
     async function getWordData() {
+      console.log(word);
       const res = await fetch(`${DICTIONARY_URL}${word}`);
+      if (!res.ok) {
+        return;
+      }
+
       const json = await res.json();
 
       if (!json[0].word) {
@@ -34,28 +38,32 @@ function App() {
       }
       setWord(json[0]);
     }
+
+    setLoading(true);
     getWordData();
     setTimeout(() => setLoading(false), 500);
   }, [word]);
 
   return (
-    <div className="App">
-      <h1 className="visually-hidden">Dictionary Web App</h1>
-      <ThemeContext.Provider value={toggleTheme}>
-        <NavBar />
-      </ThemeContext.Provider>
-      <SearchInput word={word} setWord={setWord} />
-      {loading && (
-        <div className="dictionary-entry__spinner-container">
-          <ClockLoader
-            size={200}
-            aria-label="Loading Spinner"
-            color={'var(--clr-accent)'}
-          />
-        </div>
-      )}
-      {!loading && <DictionaryEntry wordData={word} />}
-    </div>
+    <main>
+      <div className="App">
+        <h1 className="visually-hidden">Dictionary Web App</h1>
+        <ThemeContext.Provider value={toggleTheme}>
+          <NavBar />
+        </ThemeContext.Provider>
+        <SearchInput word={word} setWord={setWord} />
+        {loading && (
+          <div className="dictionary-entry__spinner-container">
+            <ClockLoader
+              size={200}
+              aria-label="Loading Spinner"
+              color={'var(--clr-accent)'}
+            />
+          </div>
+        )}
+        {!loading && <DictionaryEntry wordData={word} />}
+      </div>
+    </main>
   );
 }
 

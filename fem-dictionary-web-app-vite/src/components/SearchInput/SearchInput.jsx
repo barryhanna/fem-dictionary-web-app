@@ -18,7 +18,6 @@ const SearchInput = ({ setWord }) => {
       setError(true);
       return;
     }
-    console.log(`${searchTerm} submitted`);
     setWord(searchTerm);
   }
 
