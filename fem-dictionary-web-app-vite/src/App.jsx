@@ -22,6 +22,8 @@ function App() {
   }, [theme]);
 
   React.useEffect(() => {
+    if (theme === '') return;
+
     setLoading(true);
     async function getWordData() {
       const res = await fetch(`${DICTIONARY_URL}${word}`);

@@ -14,7 +14,7 @@ const ToggleButton = () => {
       <button
         className={`toggle-button${toggle ? ' on' : ''}`}
         onClick={handleClick}
-        ariaLabel="Toggle Theme"
+        aria-label="Toggle Theme"
       ></button>
       <svg
         xmlns="http://www.w3.org/2000/svg"
