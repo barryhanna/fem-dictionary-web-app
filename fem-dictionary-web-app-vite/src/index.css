@@ -173,13 +173,31 @@ select {
 .navbar .options {
   display: flex;
   gap: 1em;
+  align-items: center;
+}
+
+.typeface-selector__container {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  border-radius: 1rem;
+  accent-color: var(--clr-accent);
+}
+
+.typeface-selector__container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: calc(-1 * var(--spacer-sm));
+  width: 1px;
+  height: 100%;
+  background-color: var(--clr-gray-200);
 }
 
 .typeface-selector {
+  background-color: transparent;
   border: none;
-  border-radius: 1rem;
-  padding-inline: var(--spacer-sm) calc(var(--spacer-sm / 2));
-  accent-color: var(--clr-accent);
+  margin-right: var(--spacer-sm);
 }
 
 .dark .typeface-selector {
@@ -270,7 +288,6 @@ select {
 
 .search-input__search:focus {
   outline: none;
-  box-shadow: ;
 }
 
 .search-input__error-message {

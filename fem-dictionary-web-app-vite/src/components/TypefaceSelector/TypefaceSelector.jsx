@@ -12,22 +12,24 @@ const TypefaceSelector = () => {
   }
 
   return (
-    <select
-      className="typeface-selector"
-      name="typeface"
-      id="typeface"
-      aria-label="Typeface"
-      value={selectedTypeface}
-      onChange={(e) => {
-        const newTypeface = e.target.value;
-        setSelectedTypeface(newTypeface);
-        updateTypefaceVar(newTypeface);
-      }}
-    >
-      <option value="sans">Sans Serif</option>
-      <option value="serif">Serif</option>
-      <option value="mono">Monospace</option>
-    </select>
+    <div className="typeface-selector__container">
+      <select
+        className="typeface-selector"
+        name="typeface"
+        id="typeface"
+        aria-label="Typeface"
+        value={selectedTypeface}
+        onChange={(e) => {
+          const newTypeface = e.target.value;
+          setSelectedTypeface(newTypeface);
+          updateTypefaceVar(newTypeface);
+        }}
+      >
+        <option value="sans">Sans Serif</option>
+        <option value="serif">Serif</option>
+        <option value="mono">Monospace</option>
+      </select>
+    </div>
   );
 };
 
