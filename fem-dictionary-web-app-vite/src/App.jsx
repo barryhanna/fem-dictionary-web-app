@@ -38,6 +38,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1 className="visually-hidden">Dictionary Web App</h1>
       <ThemeContext.Provider value={toggleTheme}>
         <NavBar />
       </ThemeContext.Provider>
