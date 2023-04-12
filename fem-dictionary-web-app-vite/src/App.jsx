@@ -9,7 +9,7 @@ export const ThemeContext = React.createContext();
 function App() {
   const DICTIONARY_URL =
     'https://api.dictionaryapi.dev/api/v2/entries/en/';
-  const [word, setWord] = React.useState('');
+  const [word, setWord] = React.useState('keyboard');
   const [loading, setLoading] = React.useState(false);
   const [theme, toggleTheme] = React.useState('light');
 
