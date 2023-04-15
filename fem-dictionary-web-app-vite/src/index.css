@@ -71,7 +71,7 @@
   --spacer-md: calc(var(--spacer) * 1.5);
   --spacer-lg: calc(var(--spacer) * 2);
   --spacer-xl: calc(var(--spacer) * 2.5);
-  --gutter: var(--spacer-md);
+  --gutter: 5%;
 
   --max-width: 737px;
 }
@@ -210,7 +210,7 @@ select {
   min-height: 80vh;
   margin: 0 auto;
   padding: var(--gutter);
-  max-width: var(--max-width);
+  min-width: var(--max-width);
 }
 
 /* TOGGLE BUTTON - LIGHT/DARK THEME */
